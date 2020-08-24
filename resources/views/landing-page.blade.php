@@ -55,7 +55,7 @@
                 <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic.</p>
 
                 <div class="text-center button-container">
-                    <a href="#" class="button">Featured</a>
+                    <a href="#" class="button">Destacados</a>
                     <a href="#" class="button">On Sale</a>
                 </div>
 
