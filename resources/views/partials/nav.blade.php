@@ -1,6 +1,6 @@
 <header>
     <div class="top-nav container">
-        <div class="logo"><a href="/">Laravel Ecommerce</a></div>
+        <div class="logo"><a href="/">Farix Laravel Ecommerce</a></div>
         @if (! request()->is('checkout'))
         <ul>
             <li><a href="{{ route('shop.index') }}">Shop</a></li>

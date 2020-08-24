@@ -19,7 +19,7 @@
     <body>
         <header class="with-background">
             <div class="top-nav container">
-                <div class="logo">Laravel Ecommerce</div>
+                <div class="logo">Farix Laravel Ecommerce</div>
                 <ul>
                     <li><a href="{{ route('shop.index') }}">Shop</a></li>
                     <li><a href="#">About</a></li>
@@ -33,7 +33,7 @@
             </div> <!-- end top-nav -->
             <div class="hero container">
                 <div class="hero-copy">
-                    <h1>Laravel Ecommerce Demo</h1>
+                    <h1>Farix Laravel Ecommerce Demo</h1>
                     <p>Includes multiple products, categories, a shopping cart and a checkout system with Stripe integration.</p>
                     <div class="hero-buttons">
                         <a href="#" class="button button-white">Blog Post</a>
@@ -50,7 +50,7 @@
         <div class="featured-section">
 
             <div class="container">
-                <h1 class="text-center">Laravel Ecommerce</h1>
+                <h1 class="text-center">Farix Laravel Ecommerce</h1>
 
                 <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic.</p>
 
