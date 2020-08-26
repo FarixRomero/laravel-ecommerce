@@ -134,7 +134,7 @@
       <div class="checkout-table">
         <div class="checkout-table-row">
           <div class="checkout-table-row-left">
-            <img src="/img/macbook-pro.png" alt="item" class="checkout-table-img">
+          <img src="{{asset('img/products/'.$item->model->slug.'.jpg')}}" alt="item" class="checkout-table-img">
             <div class="checkout-item-details">
               <div class="checkout-table-item">{{$item->model->name}}</div>
               <div class="checkout-table-description">{{$item->model->detail}}</div>
@@ -189,7 +189,7 @@
             {{presentPrice($newTax)}}<br>
             <span class="checkout-totals-total">{{presentPrice($newTotal)}}</span>
           </div>
-        </div> <!-- end checkout-totals -->
+        </div> <!-- end checkout-totals --> 
       </div>
          {{-- cupones --}}
          @if (!session()->has('coupon'))
