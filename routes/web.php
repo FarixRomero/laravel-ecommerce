@@ -18,7 +18,9 @@ Route::get('/checkout','CheckoutController@index')->name('checkout.index');
 Route::post('/checkout','CheckoutController@store')->name('checkout.store');
 Route::get('/thankyou','ConfirmController@index')->name('confirmation.index');
 
+Route::post('/coupon','CouponsController@store')->name('coupon.store');
 
+Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
 
 
 Route::get('empty',function(){

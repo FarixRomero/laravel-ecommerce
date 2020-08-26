@@ -20,7 +20,15 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('checkout');
+
+        return view('checkout')->with([
+            'discount'=>$this->getNumbers()->get('discount'),
+            'newSubtotal'=>$this->getNumbers()->get('newSubtotal'),
+            'newTax'=>$this->getNumbers()->get('newTax'),
+            'newTotal'=>$this->getNumbers()->get('newTotal'),
+            'total'=>$this->getNumbers()->get('total')
+
+        ]);
     }
 
     /**
@@ -50,18 +58,22 @@ class CheckoutController extends Controller
             $charge = Stripe::charges()->create([
              
                 'currency' => 'USD',
-                'amount'   => Cart::total()/100,
+                'amount'   => $this->getNumbers()->get('newTotal')/100,
                 'source'=> $request->stripeToken,
                 'description'=> 'Order',
                 'receipt_email'=> $request->mail,
                  'metadata'=>[
                      'contents'=>$contents,
                      'quantity'=>Cart::instance('default')->count(),
+                     'discount'=> collect(session()->get('coupon'))->toJson()
 
                  ],
                 // 'customer' => $customer['id']
             ]);      
             Cart::instance('default')->destroy();
+             //destrozamos cupon    
+            session()->forget('coupon');
+
             return redirect()->route('confirmation.index')->with('success_message','Thank you! HAS PAGADO CORRECTAMENTE');
         } catch (CardErrorException $e) {
             return back()->withErrors('Error', $e->getMessage());
@@ -112,5 +124,23 @@ class CheckoutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getNumbers()
+    {
+        $tax= config('cart.tax')/100;
+        $discount= session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal=(Cart::subtotal());
+        $total=(Cart::total());
+        $newTax =$newSubtotal * $tax;
+        $newTotal = $newSubtotal + $newTax - $discount;
+        return collect([
+            'discount'=>$discount,
+            'newSubtotal'=>$newSubtotal,
+            'newTax'=>$newTax,
+            'newTotal'=>$newTotal,
+            'total'=>$total
+
+        ]);
     }
 }
