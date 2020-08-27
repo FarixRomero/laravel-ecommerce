@@ -31,3 +31,8 @@ Route::get('empty',function(){
     Cart::instance('saveForLater')->destroy();
 
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
